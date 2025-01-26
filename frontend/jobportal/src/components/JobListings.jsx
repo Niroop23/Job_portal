@@ -1,20 +1,17 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { AppContext } from "../context/AppContext";
-import {
-  assets,
-  JobCategories,
-  JobLocations,
-  jobsData,
-} from "../assets/assets";
+import { assets, JobCategories, JobLocations } from "../assets/assets";
 import JobCard from "./JobCard";
 
 const JobListings = () => {
-  const { isSearchInput, searchFilter, setSearchFilter } =
+  const { isSearchInput, searchFilter, setSearchFilter, jobs } =
     useContext(AppContext);
+
+  const [showFilter, setShowFilter] = useState(false);
 
   return (
     <>
-      <div className="container 2xl:px-16 mx-auto flex flex-col lg:flex-row max-lg:space-y-8 gap-10  py-9 ">
+      <div className="container 2xl:px-16 mx-auto flex flex-col lg:flex-row max-lg:space-y-8 gap-10  ">
         {/**side bar */}
         <div className="w-full lg:w-1/4 bg-white px-4 ">
           {isSearchInput &&
@@ -106,8 +103,8 @@ const JobListings = () => {
             Jobs
           </h3>
           <p className="mb-8">Get your dream job from your dream companies</p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4">
-            {jobsData.map((job, index) => {
+          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4 mb-24">
+            {jobs.map((job, index) => {
               return <JobCard job={job} key={index} />;
             })}
           </div>

@@ -4,8 +4,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-  .font-Outfit {
-    font-family: "Outfit", serif;
-  }
+* {
+  font-family: Outfit;
 }
