@@ -3,6 +3,7 @@ import Nav from "../components/Nav";
 import Poster from "../components/Poster";
 import JobListings from "../components/JobListings";
 import PlayStore from "../components/PlayStore";
+import Footer from "../components/Footer";
 
 const Home = () => {
   return (
@@ -11,6 +12,7 @@ const Home = () => {
       <Poster />
       <JobListings />
       <PlayStore />
+      <Footer />
     </div>
   );
 };
