@@ -74,7 +74,7 @@ const Poster = () => {
           <img
             src="./src/assets/clear_icon.svg"
             onClick={onClear}
-            className="h-5 pr-2 "
+            className="h-6 px-2 cursor-pointer"
           />
         </div>
       </div>

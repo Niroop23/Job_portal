@@ -7,13 +7,15 @@ const JobListings = () => {
   const { isSearchInput, searchFilter, setSearchFilter, jobs } =
     useContext(AppContext);
 
-  const [showFilter, setShowFilter] = useState(false);
+  const [showFilter, setShowFilter] = useState(true);
+
+  const [currPage, setCurrPage] = useState(1);
 
   return (
     <>
       <div className="container 2xl:px-16 mx-auto flex flex-col lg:flex-row max-lg:space-y-8 gap-10  ">
         {/**side bar */}
-        <div className="w-full lg:w-1/4 bg-white px-4 ">
+        <div className="w-full lg:w-1/4 bg-white px-4  ">
           {isSearchInput &&
             (searchFilter.title !== "" || searchFilter.location !== "") && (
               <>
@@ -58,8 +60,14 @@ const JobListings = () => {
                 </div>
               </>
             )}
+          <button
+            onClick={(e) => setShowFilter((prev) => !prev)}
+            className="px-6 py-1.5 border border-gray-400 rounded lg:hidden "
+          >
+            {showFilter ? "close" : "Filters"}
+          </button>
           {/**category filter */}
-          <section className="max-lg:hidden ">
+          <section className={showFilter ? "" : "max-lg:hidden"}>
             <div>
               <h4 className="font-medium text-md py-4">Search By Categories</h4>
               <ul className="space-y-3 text-gray-600">
@@ -103,11 +111,50 @@ const JobListings = () => {
             Jobs
           </h3>
           <p className="mb-8">Get your dream job from your dream companies</p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4 mb-24">
-            {jobs.map((job, index) => {
+          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4 mb-16">
+            {jobs.slice((currPage - 1) * 6, currPage * 6).map((job, index) => {
               return <JobCard job={job} key={index} />;
             })}
           </div>
+
+          {/**pagination */}
+          {jobs.length > 0 && (
+            <div className="flex items-center justify-center space-x-5 mb-8 select-none">
+              <a href="#job-card">
+                <img
+                  src={assets.left_arrow_icon}
+                  alt="left_arrow"
+                  onClick={() => setCurrPage(Math.max(currPage - 1, 1))}
+                />
+              </a>
+              {Array.from({ length: Math.ceil(jobs.length / 6) }).map(
+                (_, index) => (
+                  <a href="#job-card">
+                    <button
+                      className={`w-10 h-10 flex items-center justify-center rounded-full border ${
+                        currPage === index + 1
+                          ? "bg-blue-500 text-white"
+                          : "text-gray-700"
+                      }`}
+                      onClick={() => setCurrPage(index + 1)}
+                    >
+                      {index + 1}
+                    </button>
+                  </a>
+                )
+              )}
+              <a href="#job-card">
+                <img
+                  src={assets.right_arrow_icon}
+                  alt="right_arrow"
+                  onClick={() => {
+                    if (currPage < Math.ceil(jobs.length / 6))
+                      setCurrPage(currPage + 1);
+                  }}
+                />
+              </a>
+            </div>
+          )}
         </main>
       </div>
     </>

@@ -2,6 +2,7 @@ import React from "react";
 import Nav from "../components/Nav";
 import Poster from "../components/Poster";
 import JobListings from "../components/JobListings";
+import PlayStore from "../components/PlayStore";
 
 const Home = () => {
   return (
@@ -9,6 +10,7 @@ const Home = () => {
       <Nav />
       <Poster />
       <JobListings />
+      <PlayStore />
     </div>
   );
 };
