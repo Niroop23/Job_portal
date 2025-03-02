@@ -2,17 +2,22 @@ import React from "react";
 import { assets } from "../assets/assets";
 import { FaPhoenixFramework } from "react-icons/fa";
 import { useClerk, UserButton, useUser } from "@clerk/clerk-react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Nav = () => {
   const { openSignIn } = useClerk();
   const { user } = useUser();
+  const Navigate = useNavigate();
 
   return (
     <div className="shadow py-4">
       <div className="container px-3 2xl:px-20 mx-auto flex justify-between items-center">
         <div className="flex gap-1 ">
-          <FaPhoenixFramework size={40} />
+          <FaPhoenixFramework
+            size={40}
+            onClick={() => Navigate("/")}
+            className="cursor-pointer"
+          />
           <span className="font-semibold text-3xl font-sans text-slate-800">
             NXTPATH
           </span>

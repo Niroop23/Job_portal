@@ -1,8 +1,10 @@
 import React from "react";
 import { assets } from "../assets/assets";
 import DOMPurify from "dompurify";
+import { useNavigate } from "react-router-dom";
 
 const JobCard = ({ job }) => {
+  let navigate = useNavigate();
   return (
     <div className="container border rounded p-5 shadow-lg  ">
       <div className="flex gap-1 justify-between items-center">
@@ -24,7 +26,14 @@ const JobCard = ({ job }) => {
         }}
       ></p>
       <div className=" flex gap-4 mt-3 text-sm  ">
-        <button className=" bg-blue-500 border-0 outline-0 px-3 py-[6px] ring-1 ring-blue-600  text-white rounded transform transition-transform duration-200 active:scale-95 hover:bg-blue-400 hover:ring-blue-500">
+        <button
+          onClick={() => {
+            navigate(`/apply/${job._id}`);
+            scrollTo(0, 0);
+            console.log(job._id);
+          }}
+          className=" bg-blue-500 border-0 outline-0 px-3 py-[6px] ring-1 ring-blue-600  text-white rounded transform transition-transform duration-200 active:scale-95 hover:bg-blue-400 hover:ring-blue-500"
+        >
           Apply now
         </button>
         <button
