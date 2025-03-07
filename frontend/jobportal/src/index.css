@@ -23,7 +23,7 @@
   color: #7a7b7d;
 }
 
-.rich-text P {
+.rich-text p {
   margin-bottom: 16px;
 }
 
@@ -31,24 +31,28 @@
   font-size: 36px;
   color: #252525;
   font-weight: 800;
+  margin-bottom: 20px;
 }
 
 .rich-text h2 {
   font-size: 22px;
   color: #252525;
   font-weight: 700;
+  margin-bottom: 16px;
 }
 
 .rich-text h3 {
   font-size: 18px;
   color: #333333;
   font-weight: 600;
+  margin-bottom: 16px;
 }
 
 .rich-text h4 {
   font-size: 16px;
   color: #444444;
   font-weight: 500;
+  margin-bottom: 16px;
 }
 
 .rich-text h5 {
@@ -70,6 +74,8 @@
 .rich-text ol {
   list-style-type: decimal;
   margin-left: 30px;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .rich-text ul {
