@@ -1,13 +1,15 @@
-import React from "react";
+import React, { useCallback, useContext, useEffect, useRef } from "react";
 import { assets } from "../assets/assets";
 import { FaPhoenixFramework } from "react-icons/fa";
 import { useClerk, UserButton, useUser } from "@clerk/clerk-react";
 import { Link, useNavigate } from "react-router-dom";
+import { AppContext } from "../context/AppContext";
 
 const Nav = () => {
   const { openSignIn } = useClerk();
   const { user } = useUser();
   const Navigate = useNavigate();
+  const { setShowRecruiterLogin } = useContext(AppContext);
 
   return (
     <div className="shadow py-4">
@@ -41,7 +43,12 @@ const Nav = () => {
             >
               Login
             </button>
-            <button className="text-gray-700">Employer Login</button>
+            <button
+              onClick={(e) => setShowRecruiterLogin(true)}
+              className="text-gray-700"
+            >
+              Employer Login
+            </button>
           </div>
         )}
       </div>
