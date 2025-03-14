@@ -7,6 +7,7 @@ import { TfiLocationPin } from "react-icons/tfi";
 import kConvert from "k-convert";
 import JobCard from "../components/JobCard";
 import Footer from "../components/Footer";
+import Nav from "../components/Nav";
 
 const JobApplication = () => {
   const { id } = useParams();
@@ -30,6 +31,7 @@ const JobApplication = () => {
 
   return jobData ? (
     <>
+      <Nav />
       <div className="container min-h-screen flex flex-col mt-5  py-10 px-5   rounded-sm  mx-auto  2xl:px-20">
         <div className="bg-white text-black rounded-lg w-full">
           <div className="flex flex-col sm:flex-row items-center justify-center md:justify-between  gap-8 px-11 py-20 mb-7 bg-sky-100 border border-sky-500 rounded-xl ">

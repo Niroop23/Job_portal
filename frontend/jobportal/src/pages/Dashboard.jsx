@@ -2,7 +2,6 @@ import React from "react";
 import { FaPhoenixFramework } from "react-icons/fa";
 import { NavLink, Outlet, useNavigate } from "react-router-dom";
 import { assets } from "../assets/assets";
-import { BiEdit } from "react-icons/bi";
 
 const Dashboard = () => {
   const navigate = useNavigate();
@@ -40,7 +39,7 @@ const Dashboard = () => {
       </div>
       <div className="flex items-start">
         {/**left bar */}
-        <div className="border border-r-2 inline-block min-h-screen ">
+        <div className=" border border-r-2  min-h-screen ">
           <ul className="flex flex-col  items-start pt-5 text-gray-800">
             <NavLink
               className={({ isActive }) =>
@@ -78,7 +77,7 @@ const Dashboard = () => {
             </NavLink>
           </ul>
         </div>
-        <div className="bg-pink-200 w-full">
+        <div>
           <Outlet />
         </div>
       </div>

@@ -10,6 +10,7 @@ const Application = () => {
 
   return (
     <>
+      <Nav />
       <div className="container px-4 min-h-[70vh] mx-auto my-11 ">
         <h2 className="text-xl font-semibold">Your Resume</h2>
         <div className="flex gap-2 mb-[26px] mt-3">
